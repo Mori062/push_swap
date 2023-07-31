@@ -1,39 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   put_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/07/31 19:40:00 by morishitash      ###   ########.fr       */
+/*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
+/*   Updated: 2023/07/31 16:01:54 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_args(int argc, char **argv)
+int		args_ckecker(int ac, char **av)
 {
 	int	i;
 	int	j;
-	int	flag;
+	int	sort_count;
 
 	i = 1;
-	while (argv[i] != NULL)
+	sort_count = 0;
+	while (i < ac)
 	{
-		j = 0;
-		flag = 0;
-		if (ft_isint(argv[i]) == 0)
-			return (1);
-		while (argv[i][j] != '\0')
+		j = 1;
+		while (j < ac)
 		{
-			if (ft_isdigit(argv[i][j]) == 0 && argv[i][j] != '-' && flag == 1)
-				return (1);
-			if (argv[i][j] == '-')
-				flag = 1;
+			if (ft_atoi(av[i]) > ft_atoi(av[j]))
+				sort_count++;
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return (sort_count);
+}
+
+
+void	putargs2stack(int ac, char **av, t_stack *stack_a)
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		stack_a->content = ft_atoi(av[i]);
+		stack_a->index = i;
+		stack_a->next = (t_stack *)malloc(sizeof(t_stack));
+		stack_a = stack_a->next;
+		i++;
+	}
+	stack_a->next = NULL;
 }

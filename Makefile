@@ -5,16 +5,15 @@ CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
 
 SRC_DIR		= srcs
-SRC			= 
-SRCS		= $(addprefix $(SRC_DIR)/, $(SRC))
+SRC			= check_args.c \
+				main.c \
+				put_stack.c
 
-BONUS_SRC	= 
-BONUS_SRCS	= $(addprefix $(SRC_DIR)/, $(BONUS_SRC))
+SRCS		= $(addprefix $(SRC_DIR)/, $(SRC))
 
 OBJ_PATH	= obj
 OBJ 		= $(SRC:.c=.o)
 OBJS		= $(addprefix $(OBJ_PATH)/, $(OBJ))
-BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
 
 INC_PATH	= includes
 INC			= push_swap.h
@@ -33,13 +32,8 @@ RESET		= \033[0m
 
 all : $(NAME)
 
-bonus : $(BONUS_NAME)
-
 $(LIBS):
 	@ make -C $(LIB_PATH)
-
-$(BONUS_NAME) : $(BONUS_OBJS) $(LIBS)
-	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OBJS)
 
 $(NAME) : $(OBJS) $(LIBS)
 	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJS)
@@ -50,11 +44,11 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS)
 	@ $(CC) $(CFLAGS) -o $@ -c $< -I $(INCS)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS)
 
 fclean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
-	$(RM) $(NAME) $(BONUS_NAME)
+	$(RM) $(OBJS)
+	$(RM) $(NAME)
 
 re: fclean all
 

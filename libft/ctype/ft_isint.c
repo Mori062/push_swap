@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 13:16:43 by shmorish          #+#    #+#             */
-/*   Updated: 2023/07/31 17:37:55 by morishitash      ###   ########.fr       */
+/*   Created: 2023/07/31 17:35:42 by morishitash       #+#    #+#             */
+/*   Updated: 2023/07/31 19:32:40 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_list.h"
+#include "../includes/ft_ctype.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_isint(char *str)
 {
-	t_list	*ret;
+	int		sign;
+	long	result;
 
-	ret = lst;
-	if (ret == NULL)
+	result = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
+	{
+		sign = -sign;
+		str++;
+	}
+	while (ft_isdigit(*str))
+		result = result * 10 + (*str++ - '0');
+	if (*str != '\0')
 		return (0);
-	while (ret->next != NULL)
-		ret = ret->next;
-	return (ret);
+	if (result * sign > INT_MAX || result * sign < INT_MIN)
+		return (0);
+	return (1);
 }
