@@ -1,15 +1,13 @@
 NAME		= push_swap
-BONUS_NAME	= checker
 
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
 
-SRC_DIR		= srcs
+SRC_PATH	= srcs
 SRC			= check_args.c \
 				main.c \
 				put_stack.c
-
-SRCS		= $(addprefix $(SRC_DIR)/, $(SRC))
+SRCS		= $(addprefix $(SRC_PATH)/, $(SRC))
 
 OBJ_PATH	= obj
 OBJ 		= $(SRC:.c=.o)

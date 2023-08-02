@@ -6,7 +6,7 @@ INCLUDE = 'libft.h'
 
 CTYPE_SRCS = ctype/ft_isalnum.c ctype/ft_isalpha.c ctype/ft_isascii.c ctype/ft_isdigit.c \
 				ctype/ft_isprint.c ctype/ft_isspace.c ctype/ft_tolower.c ctype/ft_toupper.c \
-				ctype/ft_isdouble.c
+				ctype/ft_isdouble.c ctype/ft_isint.c
 
 LIST_SRCS = list/ft_lstadd_back.c list/ft_lstadd_front.c list/ft_lstclear.c list/ft_lstdelone.c \
 				list/ft_lstiter.c list/ft_lstlast.c list/ft_lstmap.c list/ft_lstnew.c list/ft_lstsize.c
@@ -15,7 +15,7 @@ STDIO_SRCS = stdio/ft_putchar_fd.c stdio/ft_putendl_fd.c stdio/ft_putnbr_fd.c st
 				stdio/get_next_line/get_next_line.c stdio/get_next_line/get_next_line_utils.c \
 				  
 STDLIB_SRCS = stdlib/ft_atoi.c stdlib/ft_atol.c stdlib/ft_atoll.c stdlib/ft_calloc.c stdlib/ft_itoa.c \
-				stdlib/ft_atof.c
+				stdlib/ft_atof.c stdlib/ft_strtol.c
 
 STRING_SRCS = string/ft_bzero.c string/ft_memchr.c string/ft_memcmp.c string/ft_memcpy.c \
 				string/ft_memmove.c string/ft_memset.c string/ft_split.c string/ft_strchr.c string/ft_strcmp.c \

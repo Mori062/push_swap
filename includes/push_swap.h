@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/07/31 19:35:32 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/02 19:35:21 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include "../libft/includes/libft.h"
 
-int					check_args(int ac, char **av);
+int					check_args(int argc, char **argv);
+
+// sa, sb, ss
+// pa, pb
+// ra, rb, rr
+// rra, rrb, rrr
 
 #endif

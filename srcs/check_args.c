@@ -6,11 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/07/31 19:40:00 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/02 20:41:08 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include "../libft/includes/libft.h"
+
 
 int	check_args(int argc, char **argv)
 {
@@ -19,6 +21,7 @@ int	check_args(int argc, char **argv)
 	int	flag;
 
 	i = 1;
+	(void)argc;
 	while (argv[i] != NULL)
 	{
 		j = 0;

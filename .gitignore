@@ -1,5 +1,7 @@
 ## outputfiles
 *.out
+obj/
+*.o
 
 ## debug files
 .vscode/
