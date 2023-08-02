@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/02 20:41:08 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/02 20:48:56 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
-
 
 int	check_args(int argc, char **argv)
 {

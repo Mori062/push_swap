@@ -30,11 +30,9 @@ RESET		= \033[0m
 
 all : $(NAME)
 
-$(LIBS):
+$(NAME) : $(OBJS)
 	@ make -C $(LIB_PATH)
-
-$(NAME) : $(OBJS) $(LIBS)
-	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
 	@echo "$(CHECK) $(BLUE)Compiling push_swap... $(RESET)"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS)
@@ -42,10 +40,11 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS)
 	@ $(CC) $(CFLAGS) -o $@ -c $< -I $(INCS)
 
 clean:
+	@ make clean -C $(LIB_PATH)
 	$(RM) $(OBJS)
 
-fclean:
-	$(RM) $(OBJS)
+fclean: clean
+	@ make fclean -C $(LIB_PATH)
 	$(RM) $(NAME)
 
 re: fclean all
