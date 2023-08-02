@@ -6,7 +6,7 @@
 /*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 02:51:42 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/03 03:43:31 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ int	count_node(int argc, char **argv)
 		return (argc - 1);
 }
 
+int    sort(int *args, int num)
+{
+    if (num = 1)
+        return (0);
+    else if (num == 2)
+        return (sort2(args));
+    else if (num == 3)
+        return (sort3(args));
+    else if (num == 4)
+        return (sort4(args));
+    else if (num == 5)
+        return (sort5(args));
+    else
+        return (sort_many(args));
+}
+
 int	main(int argc, char **argv)
 {
 	int		*args;
@@ -58,5 +74,6 @@ int	main(int argc, char **argv)
 		return (err_msg());
 	num_counter = count_node(argc, argv);
 	args = putargs2stack(argc, argv, num_counter);
+	sort(args, num_counter);
 	return (0);
 }
