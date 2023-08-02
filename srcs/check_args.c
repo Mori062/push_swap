@@ -6,12 +6,30 @@
 /*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/02 20:48:56 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/03 03:02:55 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../libft/includes/libft.h"
+
+int	check_from_commandline(char **argv)
+{
+	int	i;
+	int	flag;
+
+	i = 0;
+	flag = 0;
+	while (argv[1][i] != '\0')
+	{
+		if (ft_isdigit(argv[1][i]) == 0 && argv[1][i] != '-' && flag == 1)
+			return (1);
+		if (argv[1][i] == '-')
+			flag = 1;
+		i++;
+	}
+	return (0);
+}
 
 int	check_args(int argc, char **argv)
 {
@@ -20,7 +38,8 @@ int	check_args(int argc, char **argv)
 	int	flag;
 
 	i = 1;
-	(void)argc;
+	if (argc == 2)
+		return (check_from_commandline(argv));
 	while (argv[i] != NULL)
 	{
 		j = 0;

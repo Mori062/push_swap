@@ -3,27 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/02 20:07:41 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/03 02:51:42 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	err_msg(void)
+{
+	ft_putendl_fd("Error", 2);
+	return (1);
+}
+
+int	count_node(int argc, char **argv)
+{
+	int	i;
+	int	flag;
+	int	counter;
+
+	flag = 0;
+	counter = 0;
+	i = 0;
+	if (argc == 2)
+	{
+		while (argv[1][i] != '\0')
+		{
+			if (ft_isdigit(argv[1][i]) == 1)
+			{
+				if (flag == 0)
+					counter ++;
+				flag = 1;
+			}
+			else
+				flag = 0;
+			i++;
+		}
+		return (counter);
+	}
+	else
+		return (argc - 1);
+}
+
 int	main(int argc, char **argv)
 {
-	// t_list	stack_a;
-	// t_list	stack_b;
-	// int		sort_count;
+	int		*args;
+	int		num_counter;
 
 	if (argc == 1)
 		return (0);
 	if (check_args(argc, argv) == 1)
-		return (1);
-	// sort_count = args_ckecker(argc, argv);
-	// putargs2stack(argc, argv, &stack_a);
-	// sort_checker(&stack_a, &stack_b);
+		return (err_msg());
+	num_counter = count_node(argc, argv);
+	args = putargs2stack(argc, argv, num_counter);
 	return (0);
 }
