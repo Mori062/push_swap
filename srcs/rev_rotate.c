@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_stack.c                                        :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 03:44:47 by morishitash      ###   ########.fr       */
+/*   Created: 2023/08/03 16:40:54 by morishitash       #+#    #+#             */
+/*   Updated: 2023/08/03 16:57:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*putargs2stack(int argc, char **argv, int counter)
+void	rra(t_stack *stack)
 {
-	int		*arr;
-	char	**split;
-	int		i;
+	t_stack	*tmp;
 
-	i = 0;
-	arr = (int *)malloc(sizeof(int) * counter);
-	if (!arr)
-		return (NULL);
-	if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		while (split[i] != NULL)
-		{
-			arr[i] = ft_atoi(split[i]);
-			i++;
-			free(split[i]);
-		}
-		free(split);
-	}
-	else
-	{
-		while (argv[i + 1] != NULL)
-		{
-			arr[i] = ft_atoi(argv[i + 1]);
-			i++;
-		}
-	}
-	return (arr);
+	tmp = stack;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	stack->prev = tmp;
+	stack = stack->prev;
+	stack->prev = NULL;
+	stack->next = tmp;
+}
+
+void	rrb(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	stack->prev = tmp;
+	stack = stack->prev;
+	stack->prev = NULL;
+	stack->next = tmp;
+}
+
+void	rrr(t_dock *dock)
+{
+	rra(dock->stack_a);
+	rrb(dock->stack_b);
 }

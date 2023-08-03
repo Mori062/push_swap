@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 03:43:31 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/03 16:21:33 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	count_node(int argc, char **argv)
 			if (ft_isdigit(argv[1][i]) == 1)
 			{
 				if (flag == 0)
-					counter ++;
+					counter++;
 				flag = 1;
 			}
 			else
@@ -47,26 +47,143 @@ int	count_node(int argc, char **argv)
 		return (argc - 1);
 }
 
-int    sort(int *args, int num)
+// void	push(t_stack *stack, int data)
+// {
+// 	t_node	*new_node;
+
+// 	new_node = (t_node *)malloc(sizeof(t_node));
+// 	if (new_node == NULL)
+// 		return ;
+// 	new_node->original = data;
+// 	new_node->index = -1;
+// 	stack->node = new_node;
+// 	stack->next = NULL;
+// }
+
+// void	store_dock(t_dock *dock, int *args, int counter)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (i < counter)
+// 	{
+// 		push(dock->stack_a, args[i]);
+// 		i++;
+// 		dock->stack_a = dock->stack_a->next;
+// 	}
+// }
+
+// void	init_dock(t_dock *dock)
+// {
+// 	dock->stack_a = NULL;
+// 	dock->stack_b = NULL;
+// }
+
+//push
+
+// void	push(t_stack *stack, int data)
+// {
+// 	t_node	*new_node;
+
+// 	new_node = (t_node *)malloc(sizeof(t_node));
+// 	if (new_node == NULL)
+// 		return ;
+// 	new_node->original = data;
+// 	new_node->index = -1;
+// 	stack->node = new_node;
+// 	stack->next = NULL;
+// 	stack->prev = NULL;
+// }
+
+t_dock	*dock_new(int *args, int counter)
 {
-    if (num = 1)
-        return (0);
-    else if (num == 2)
-        return (sort2(args));
-    else if (num == 3)
-        return (sort3(args));
-    else if (num == 4)
-        return (sort4(args));
-    else if (num == 5)
-        return (sort5(args));
-    else
-        return (sort_many(args));
+	t_dock	*dock;
+	t_stack	*tmp;
+	int		i;
+
+	dock = (t_dock *)malloc(sizeof(t_dock));
+	if (dock == NULL)
+		return (NULL);
+	dock->stack_a = NULL;
+	dock->stack_b = NULL;
+	i = 0;
+	while (i < counter)
+	{
+		push(dock->stack_a, args[i]);
+		tmp = dock->stack_a;
+		dock->stack_a = dock->stack_a->next;
+		dock->stack_a->prev = tmp;
+		i++;
+	}
+	while (dock->stack_a->prev != NULL)
+		dock->stack_a = dock->stack_a->prev;
+	return (dock);
+}
+
+int	*sort_args(int *args, int counter)
+{
+	int		*sorted;
+	size_t	i;
+	size_t	j;
+	size_t	count;
+
+	sorted = (int *)malloc(sizeof(int) * counter);
+	if (sorted == NULL)
+		return (NULL);
+	i = 0;
+	while (i < counter)
+	{
+		j = 0;
+		count = 0;
+		while (j < counter)
+		{
+			if (args[i] > args[j])
+				count++;
+			j++;
+		}
+		sorted[i] = count;
+		i++;
+	}
+	free(args);
+	return (sorted);
+}
+
+void	putindex(t_stack *stack, int *index, int counter)
+{
+	int	i;
+
+	i = 0;
+	while (i < counter)
+	{
+		stack->index = index[i];
+		i++;
+		stack = stack->next;
+	}
+}
+
+//sort
+void	sort(t_dock *dock, int counter)
+{
+	if (counter == 1)
+		return ;
+	else if (counter == 2)
+		sort2(dock);
+	else if (counter == 3)
+		sort3(dock);
+	else if (counter == 4)
+		sort4(dock);
+	else if (counter == 5)
+		sort5(dock);
+	else
+		sort_many(dock, counter);
 }
 
 int	main(int argc, char **argv)
 {
 	int		*args;
 	int		num_counter;
+	int		*index;
+	t_dock	*dock;
 
 	if (argc == 1)
 		return (0);
@@ -74,6 +191,9 @@ int	main(int argc, char **argv)
 		return (err_msg());
 	num_counter = count_node(argc, argv);
 	args = putargs2stack(argc, argv, num_counter);
-	sort(args, num_counter);
+	dock = dock_new(args, num_counter);
+	index = sort_args(args, num_counter);
+	putindex(dock->stack_a, index, num_counter);
+	sort(dock, num_counter);
 	return (0);
 }

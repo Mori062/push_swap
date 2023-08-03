@@ -6,7 +6,12 @@ CFLAGS		= -Wall -Werror -Wextra
 SRC_PATH	= srcs
 SRC			= check_args.c \
 				main.c \
-				put_stack.c
+				push.c \
+				put_stack.c \
+				rev_rotate.c \
+				rotate.c \
+				sort.c \
+				swap.c
 SRCS		= $(addprefix $(SRC_PATH)/, $(SRC))
 
 OBJ_PATH	= obj

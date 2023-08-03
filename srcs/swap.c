@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_stack.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 03:44:47 by morishitash      ###   ########.fr       */
+/*   Created: 2023/08/03 14:54:25 by morishitash       #+#    #+#             */
+/*   Updated: 2023/08/03 16:36:36 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*putargs2stack(int argc, char **argv, int counter)
+void	sa(t_stack *stack)
 {
-	int		*arr;
-	char	**split;
-	int		i;
+	t_stack	*tmp;
 
-	i = 0;
-	arr = (int *)malloc(sizeof(int) * counter);
-	if (!arr)
-		return (NULL);
-	if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		while (split[i] != NULL)
-		{
-			arr[i] = ft_atoi(split[i]);
-			i++;
-			free(split[i]);
-		}
-		free(split);
-	}
-	else
-	{
-		while (argv[i + 1] != NULL)
-		{
-			arr[i] = ft_atoi(argv[i + 1]);
-			i++;
-		}
-	}
-	return (arr);
+	tmp = stack;
+	stack = stack->next;
+	tmp->next = stack->next;
+	stack->next = tmp;
+	stack->prev = NULL;
+}
+
+void	sb(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack;
+	stack = stack->next;
+	tmp->next = stack->next;
+	stack->next = tmp;
+	stack->prev = NULL;
+}
+
+void	ss(t_dock *dock)
+{
+	sa(dock->stack_a);
+	sb(dock->stack_b);
 }

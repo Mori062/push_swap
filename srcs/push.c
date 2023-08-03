@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_stack.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 03:44:47 by morishitash      ###   ########.fr       */
+/*   Created: 2023/08/03 17:01:57 by morishitash       #+#    #+#             */
+/*   Updated: 2023/08/03 17:13:23 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*putargs2stack(int argc, char **argv, int counter)
+void	pa(t_dock *dock)
 {
-	int		*arr;
-	char	**split;
-	int		i;
+	t_stack	*tmp;
 
-	i = 0;
-	arr = (int *)malloc(sizeof(int) * counter);
-	if (!arr)
-		return (NULL);
-	if (argc == 2)
-	{
-		split = ft_split(argv[1], ' ');
-		while (split[i] != NULL)
-		{
-			arr[i] = ft_atoi(split[i]);
-			i++;
-			free(split[i]);
-		}
-		free(split);
-	}
-	else
-	{
-		while (argv[i + 1] != NULL)
-		{
-			arr[i] = ft_atoi(argv[i + 1]);
-			i++;
-		}
-	}
-	return (arr);
+	tmp = dock->stack_b;
+	dock->stack_b = dock->stack_b->next;
+	dock->stack_b->prev = NULL;
+	tmp->next = dock->stack_a;
+	dock->stack_a = tmp;
+	dock->stack_a->prev = NULL;
+}
+
+void	pb(t_dock *dock)
+{
+	t_stack	*tmp;
+
+	tmp = dock->stack_a;
+	dock->stack_a = dock->stack_a->next;
+	dock->stack_a->prev = NULL;
+	tmp->next = dock->stack_b;
+	dock->stack_b = tmp;
+	dock->stack_b->prev = NULL;
 }
