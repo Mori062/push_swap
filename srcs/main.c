@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 16:21:33 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/03 18:57:02 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	err_msg(void)
 	return (1);
 }
 
-int	count_node(int argc, char **argv)
+size_t	count_node(int argc, char **argv)
 {
 	int	i;
 	int	flag;
-	int	counter;
+	size_t	counter;
 
 	flag = 0;
 	counter = 0;
@@ -44,21 +44,19 @@ int	count_node(int argc, char **argv)
 		return (counter);
 	}
 	else
-		return (argc - 1);
+		return ((size_t)argc - 1);
 }
 
-// void	push(t_stack *stack, int data)
-// {
-// 	t_node	*new_node;
+void	push(t_stack *stack, int data)
+{
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (stack == NULL)
+		return ;
+	stack->original = data;
+	stack->index = -1;
+	stack->next = NULL;
+}
 
-// 	new_node = (t_node *)malloc(sizeof(t_node));
-// 	if (new_node == NULL)
-// 		return ;
-// 	new_node->original = data;
-// 	new_node->index = -1;
-// 	stack->node = new_node;
-// 	stack->next = NULL;
-// }
 
 // void	store_dock(t_dock *dock, int *args, int counter)
 // {
@@ -95,11 +93,11 @@ int	count_node(int argc, char **argv)
 // 	stack->prev = NULL;
 // }
 
-t_dock	*dock_new(int *args, int counter)
+t_dock	*dock_new(size_t *args, size_t counter)
 {
 	t_dock	*dock;
 	t_stack	*tmp;
-	int		i;
+	size_t		i;
 
 	dock = (t_dock *)malloc(sizeof(t_dock));
 	if (dock == NULL)
@@ -110,9 +108,14 @@ t_dock	*dock_new(int *args, int counter)
 	while (i < counter)
 	{
 		push(dock->stack_a, args[i]);
+		if (i > 0)
+		{
+			dock->stack_a->prev = tmp;
+			dock->stack_a->prev->next = dock->stack_a;
+		}
+		else
+			dock->stack_a->prev = NULL;
 		tmp = dock->stack_a;
-		dock->stack_a = dock->stack_a->next;
-		dock->stack_a->prev = tmp;
 		i++;
 	}
 	while (dock->stack_a->prev != NULL)
@@ -120,7 +123,7 @@ t_dock	*dock_new(int *args, int counter)
 	return (dock);
 }
 
-int	*sort_args(int *args, int counter)
+int	*sort_args(size_t *args, size_t counter)
 {
 	int		*sorted;
 	size_t	i;
@@ -168,20 +171,20 @@ void	sort(t_dock *dock, int counter)
 		return ;
 	else if (counter == 2)
 		sort2(dock);
-	else if (counter == 3)
-		sort3(dock);
-	else if (counter == 4)
-		sort4(dock);
-	else if (counter == 5)
-		sort5(dock);
-	else
-		sort_many(dock, counter);
+	// else if (counter == 3)
+	// 	sort3(dock);
+	// else if (counter == 4)
+	// 	sort4(dock);
+	// else if (counter == 5)
+	// 	sort5(dock);
+	// else
+	// 	sort_many(dock, counter);
 }
 
 int	main(int argc, char **argv)
 {
-	int		*args;
-	int		num_counter;
+	size_t	*args;
+	size_t	num_counter;
 	int		*index;
 	t_dock	*dock;
 
@@ -189,6 +192,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (check_args(argc, argv) == 1)
 		return (err_msg());
+	printf("check_args OK\n");
 	num_counter = count_node(argc, argv);
 	args = putargs2stack(argc, argv, num_counter);
 	dock = dock_new(args, num_counter);

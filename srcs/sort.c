@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/03 16:22:11 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/03 17:20:56 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@ void	sort2(t_dock *dock)
 
 void	sort3(t_dock *dock)
 {
-	if (dock->stack_a->index == 0)
+	if (dock->stack_a->index != 0)
 	{
-		if (dock->stack_a->next->index == 2)
+		if (dock->stack_a->index == 1)
 		{
-			sa(dock->stack_a);
-			ft_putendl_fd("sa", 1);
+			ra(dock->stack_a);
+			ft_putendl_fd("ra", 1);
+		}
+		else
+		{
+			rra(dock->stack_a);
+			ft_putendl_fd("rra", 1);
 		}
 	}
 }

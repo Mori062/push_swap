@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 03:45:38 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/03 18:59:16 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_from_commandline(char **argv)
 	flag = 0;
 	while (argv[1][i] != '\0')
 	{
-		if (ft_isdigit(argv[1][i]) == 0 && argv[1][i] != '-' && flag == 1)
+		if (ft_isdigit(argv[1][i]) == 0 || (argv[1][i] != '-' && flag == 1))
 			return (1);
 		if (argv[1][i] == '-')
 			flag = 1;
@@ -49,8 +49,10 @@ int	check_args(int argc, char **argv)
 		{
 			if (ft_isdigit(argv[i][j]) == 0 && argv[i][j] != '-' && flag == 1)
 				return (1);
-			if (argv[i][j] == '-')
+			else if (argv[i][j] == '-')
 				flag = 1;
+			else
+				return (1);
 			j++;
 		}
 		i++;

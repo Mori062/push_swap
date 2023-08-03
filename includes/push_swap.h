@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 17:14:55 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/03 18:57:17 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -32,7 +33,7 @@ typedef struct s_dock
 
 int					check_args(int argc, char **argv);
 
-int	*putargs2stack(int argc, char **argv, int counter);
+size_t	*putargs2stack(int argc, char **argv, size_t counter);
 
 // sa, sb, ss
 void	sa(t_stack *stack);
@@ -49,5 +50,8 @@ void	rrr(t_dock *dock);
 // pa, pb
 void	pa(t_dock *dock);
 void	pb(t_dock *dock);
+
+void	sort2(t_dock *dock);
+void	sort3(t_dock *dock);
 
 #endif

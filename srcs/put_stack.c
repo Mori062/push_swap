@@ -6,20 +6,20 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 03:44:47 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/03 18:38:44 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*putargs2stack(int argc, char **argv, int counter)
+size_t	*putargs2stack(int argc, char **argv, size_t counter)
 {
-	int		*arr;
+	size_t	*arr;
 	char	**split;
 	int		i;
 
 	i = 0;
-	arr = (int *)malloc(sizeof(int) * counter);
+	arr = (size_t *)malloc(sizeof(size_t) * counter);
 	if (!arr)
 		return (NULL);
 	if (argc == 2)
