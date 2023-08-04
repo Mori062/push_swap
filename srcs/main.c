@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/03 18:57:02 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/04 15:42:53 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_dock	*dock_new(size_t *args, size_t counter)
 {
 	t_dock	*dock;
 	t_stack	*tmp;
-	size_t		i;
+	size_t	i;
 
 	dock = (t_dock *)malloc(sizeof(t_dock));
 	if (dock == NULL)
@@ -192,8 +192,8 @@ int	main(int argc, char **argv)
 		return (0);
 	if (check_args(argc, argv) == 1)
 		return (err_msg());
-	printf("check_args OK\n");
 	num_counter = count_node(argc, argv);
+	printf("check_args OK\n");
 	args = putargs2stack(argc, argv, num_counter);
 	dock = dock_new(args, num_counter);
 	index = sort_args(args, num_counter);
