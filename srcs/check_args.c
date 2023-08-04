@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/04 16:56:40 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/04 17:22:36 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,28 @@
 
 int	check_one_commandline(char **argv)
 {
-	int	i;
-	int	flag;
+	int		i;
+	int		flag;
+	char	**split;
 
 	i = 0;
 	flag = 0;
-	while (argv[1][i] != '\0')
+	split = ft_split(argv[1], ' ');
+	while (split[i] != NULL)
 	{
-		if (ft_isdigit(argv[1][i]) == 0 || (argv[1][i] != '-' && flag == 1))
-			return (1);
-		if (argv[1][i] == '-')
-			flag = 1;
+		if (ft_isint(split[i]) == 0)
+			flag++;
 		i++;
 	}
+	i = 0;
+	while (split[i] != NULL)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	if (flag > 0)
+		return (1);
 	return (0);
 }
 
