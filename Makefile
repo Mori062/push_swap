@@ -1,7 +1,7 @@
 NAME		= push_swap
 
 CC			= cc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra -g
 
 SRC_PATH	= srcs
 SRC			= check_args.c \
