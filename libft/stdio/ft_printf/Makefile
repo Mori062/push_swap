@@ -1,8 +1,9 @@
 NAME = libftprintf.a
 
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-INCLUDE = 'ft_printf.h'
+INCLUDE = './ft_printf.h'
 
 SRCS = ft_printf.c \
 		ft_format.c \
@@ -27,11 +28,17 @@ $(NAME): $(OBJS)
 	@ ar rc $(NAME) $(OBJS)
 	@echo "$(CHECK) $(BLUE)Compiling ft_printf...$(RESET)"
 
+
+# for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
+# for Ubuntu
+# %.o: %.c $(INCLUDE)
+# 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
 clean:
-	@ $(RM) $(OBJS) $(B_SRCS:.c=.o)
+	@ $(RM) $(OBJS)
 	@echo "$(REMOVE) $(BLUE)Remove ft_printf object files... $(RESET)"
 
 fclean: clean

@@ -33,7 +33,8 @@ STDIO_SRC     = ft_putchar_fd.c \
 				get_next_line/get_next_line.c \
 				get_next_line/get_next_line_utils.c
 				  
-STDLIB_SRC    = ft_atoi.c \
+STDLIB_SRC    = ft_abs.c \
+				ft_atoi.c \
 				ft_atol.c \
 				ft_atoll.c \
 				ft_calloc.c \
@@ -51,6 +52,7 @@ STRING_SRC    = ft_bzero.c \
 				ft_strchr.c \
 				ft_strcmp.c \
 				ft_strdup.c \
+				ft_striteri.c \
 				ft_strjoin.c \
 				ft_strlcat.c \
 				ft_strlcpy.c \
@@ -80,7 +82,11 @@ STRING_SRCS	  = $(addprefix $(STRING_PATH)/, $(STRING_SRC))
 PRINTF_PATH   = stdio/ft_printf
 PRINTF        = libftprintf.a
 
-SRCS          = $(CTYPE_SRCS) $(LIST_SRCS) $(STDIO_SRCS) $(STDLIB_SRCS) $(STRING_SRCS)
+SRCS          = $(CTYPE_SRCS) \
+				$(LIST_SRCS) \
+				$(STDIO_SRCS) \
+				$(STDLIB_SRCS) \
+				$(STRING_SRCS)
 OBJS          = $(SRCS:.c=.o)
 
 CHECK         = \033[32m[✔]\033[0m
@@ -96,8 +102,13 @@ $(NAME): $(OBJS)
 	@ ar rc $(NAME) $(OBJS)
 	@echo "$(CHECK) $(BLUE)Compiling libft...$(RESET)"
 
+# for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+
+# for Ubuntu
+#  %.o: %.c $(INCLUDE)
+# 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 
 clean:
 	@ make clean -C $(PRINTF_PATH)

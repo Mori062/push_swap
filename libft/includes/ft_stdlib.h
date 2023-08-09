@@ -6,18 +6,19 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 10:09:53 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/02 20:25:08 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 17:19:03 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STDLIB_H
 # define FT_STDLIB_H
 
-# include <stddef.h>
-# include <stdlib.h>
 # include <limits.h>
-# include "ft_string.h"
+# include <stddef.h>
+# include <stdint.h>
+# include <stdlib.h>
 
+int			ft_abs(int n);
 int			ft_atoi(const char *str);
 long		ft_atol(const char *str);
 long long	ft_atoll(const char *str);
