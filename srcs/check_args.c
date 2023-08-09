@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/04 17:22:36 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 12:19:39 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,24 @@ int	check_args(int argc, char **argv)
 		return (check_one_commandline(argv));
 	else
 		return (check_many_commandlines(argv));
+}
+
+int	check_duplicate(int *args, size_t counter)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (i < counter)
+	{
+		j = i + 1;
+		while (j < counter)
+		{
+			if (args[i] == args[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

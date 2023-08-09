@@ -6,20 +6,38 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/06 16:28:17 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 14:02:09 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	*putargs2stack(int argc, char **argv, long counter)
+int	convert_size_t2int(size_t num)
 {
-	long		*arr;
+	if (num > INT_MAX)
+		return (INT_MAX);
+	else
+		return ((int)num);
+}
+
+int	convert_size_t2int_overfloated(size_t num)
+{
+	if (num > INT_MAX)
+		return ((int)(num - INT_MAX));
+	else
+		return (0);
+}
+
+int	*putargs2stack(int argc, char **argv, size_t counter)
+{
+	int		*arr;
 	char	**split;
 	int		i;
 
 	i = 0;
-	arr = (long *)malloc(sizeof(long) * counter);
+	// arr = (int *)malloc(sizeof(int) * (convert_size_t2int(counter)
+	// 		+ convert_size_t2int_overfloated(counter)));
+	arr = (int *)malloc(sizeof(int) * (counter));
 	if (!arr)
 		return (NULL);
 	if (argc == 2)
@@ -28,8 +46,8 @@ long	*putargs2stack(int argc, char **argv, long counter)
 		while (split[i] != NULL)
 		{
 			arr[i] = ft_atoi(split[i]);
-			i++;
 			free(split[i]);
+			i++;
 		}
 		free(split);
 	}

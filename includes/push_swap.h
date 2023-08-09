@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/06 16:28:00 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 16:14:10 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,34 @@ typedef struct s_dock
 	struct s_stack	*stack_b;
 }					t_dock;
 
+void				sort(t_dock *dock, int counter);
+
 int					check_args(int argc, char **argv);
 
 int					err_msg(void);
 
-long	*putargs2stack(int argc, char **argv, long counter);
+int					*putargs2stack(int argc, char **argv, size_t counter);
+int					check_duplicate(int *args, size_t counter);
+
+t_dock				*dock_new(int *args, size_t counter);
+
+size_t				*args_index(int *args, size_t counter);
+void				putindex(t_stack *stack, size_t *index, size_t counter);
 
 // sa, sb, ss
-void				sa(t_stack *stack);
-void				sb(t_stack *stack);
+void				sa(t_stack **stack);
+void				sb(t_stack **stack);
 void				ss(t_dock *dock);
 // ra, rb, rr
-void				ra(t_stack *stack);
-void				rb(t_stack *stack);
+void				ra(t_stack **stack);
+void				rb(t_stack **stack);
 void				rr(t_dock *dock);
 // rra, rrb, rrr
-void				rra(t_stack *stack);
-void				rrb(t_stack *stack);
+void				rra(t_stack **stack);
+void				rrb(t_stack **stack);
 void				rrr(t_dock *dock);
 // pa, pb
-void				pa(t_dock *dock);
-void				pb(t_dock *dock);
-
-void				sort2(t_dock *dock);
-void				sort3(t_dock *dock);
+void				pa(t_dock **dock);
+void				pb(t_dock **dock);
 
 #endif

@@ -5,8 +5,11 @@ CFLAGS		= -Wall -Werror -Wextra -g
 
 SRC_PATH	= srcs
 SRC			= check_args.c \
+				dock_init.c \
+				error_message.c \
 				main.c \
 				push.c \
+				put_args.c \
 				put_stack.c \
 				rev_rotate.c \
 				rotate.c \
