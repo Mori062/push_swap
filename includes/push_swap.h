@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/10 11:51:50 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 00:29:22 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_stack
 {
 	int				original;
-	int				index;
+	size_t			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
@@ -30,7 +30,7 @@ typedef struct s_dock
 	struct s_stack	*stack_b;
 }					t_dock;
 
-void				sort(t_dock *dock, int counter);
+void				sort(t_dock *dock, size_t counter);
 
 int					check_args(int argc, char **argv);
 

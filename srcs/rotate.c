@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:04:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/10 11:42:08 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 00:41:22 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ra(t_stack **stack)
 	t_stack	*tmp;
 
 	tmp = *stack;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	tmp->next = NULL;
@@ -34,6 +36,8 @@ void	rb(t_stack **stack)
 	t_stack	*tmp;
 
 	tmp = *stack;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	tmp->next = NULL;

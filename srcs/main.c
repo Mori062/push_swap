@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/10 12:03:45 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 00:17:05 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ long	count_node(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	int		*args;
-	// int		args[5] = {2, 3, 4, 1, 5};
 	size_t	num_counter;
 	size_t	*index;
 	t_dock	*dock;
@@ -54,11 +53,10 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv) == 1)
 		return (err_msg());
 	num_counter = count_node(argc, argv);
-	// printf("check_args OK\n");
 	args = (int *)malloc(sizeof(int) * (num_counter));
 	if (!args)
 		return (1);
-	args = putargs2stack(args, argc, argv);//error
+	args = putargs2stack(args, argc, argv);
 	if (check_duplicate(args, num_counter) == 1)
 	{
 		free(args);
