@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/10 12:27:15 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/10 13:25:03 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,20 @@ void	sort4(t_dock *dock, int min_index)
 
 void	sort5(t_dock *dock, int min_index)
 {
-	while (dock->stack_a->index != min_index)
+	if (dock->stack_a->index == min_index)
+		;
+	else if (dock->stack_a->next->index == min_index)
 		ra(&dock->stack_a);
+	else if (dock->stack_a->next->next->index == min_index)
+	{
+		ra(&dock->stack_a);
+		ra(&dock->stack_a);
+	}
+	else
+	{
+		while (dock->stack_a->index != min_index)
+			rra(&dock->stack_a);
+	}
 	pb(&dock->stack_a, &dock->stack_b);
 	sort4(dock, min_index + 1);
 	pa(&dock->stack_a, &dock->stack_b);
