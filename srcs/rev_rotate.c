@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:40:54 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 16:10:58 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 18:25:56 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	rra(t_stack **stack)
 	*stack = (*stack)->prev;
 	(*stack)->prev = NULL;
 	(*stack)->next = tmp;
+	ft_putendl_fd("rra", 1);
 }
 
 void	rrb(t_stack **stack)
@@ -36,6 +37,7 @@ void	rrb(t_stack **stack)
 	*stack = (*stack)->prev;
 	(*stack)->prev = NULL;
 	(*stack)->next = tmp;
+	ft_putendl_fd("rrb", 1);
 }
 
 void	rrr(t_dock *dock)

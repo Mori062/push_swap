@@ -6,40 +6,18 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 18:38:44 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 14:02:09 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 18:17:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	convert_size_t2int(size_t num)
+int	*putargs2stack(int *arr, int argc, char **argv)
 {
-	if (num > INT_MAX)
-		return (INT_MAX);
-	else
-		return ((int)num);
-}
-
-int	convert_size_t2int_overfloated(size_t num)
-{
-	if (num > INT_MAX)
-		return ((int)(num - INT_MAX));
-	else
-		return (0);
-}
-
-int	*putargs2stack(int argc, char **argv, size_t counter)
-{
-	int		*arr;
 	char	**split;
 	int		i;
 
 	i = 0;
-	// arr = (int *)malloc(sizeof(int) * (convert_size_t2int(counter)
-	// 		+ convert_size_t2int_overfloated(counter)));
-	arr = (int *)malloc(sizeof(int) * (counter));
-	if (!arr)
-		return (NULL);
 	if (argc == 2)
 	{
 		split = ft_split(argv[1], ' ');

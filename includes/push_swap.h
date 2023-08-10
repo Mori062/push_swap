@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 16:14:10 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/09 17:52:33 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ int					check_args(int argc, char **argv);
 
 int					err_msg(void);
 
-int					*putargs2stack(int argc, char **argv, size_t counter);
+// int					*putargs2stack(int argc, char **argv, size_t counter);
 int					check_duplicate(int *args, size_t counter);
 
 t_dock				*dock_new(int *args, size_t counter);
 
 size_t				*args_index(int *args, size_t counter);
 void				putindex(t_stack *stack, size_t *index, size_t counter);
+
+int					*putargs2stack(int *arr, int argc, char **argv);
 
 // sa, sb, ss
 void				sa(t_stack **stack);
