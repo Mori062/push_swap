@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 17:52:33 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/10 11:51:50 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void				rra(t_stack **stack);
 void				rrb(t_stack **stack);
 void				rrr(t_dock *dock);
 // pa, pb
-void				pa(t_dock **dock);
-void				pb(t_dock **dock);
+void				pa(t_stack **stack_a, t_stack **stack_b);
+void				pb(t_stack **stack_a, t_stack **stack_b);
 
 #endif
