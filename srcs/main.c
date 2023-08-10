@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 17:52:13 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/10 12:03:45 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv) == 1)
 		return (err_msg());
 	num_counter = count_node(argc, argv);
-	printf("check_args OK\n");
+	// printf("check_args OK\n");
 	args = (int *)malloc(sizeof(int) * (num_counter));
 	if (!args)
 		return (1);

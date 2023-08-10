@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:40:54 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 18:25:56 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/10 12:48:48 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ void	rra(t_stack **stack)
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	(*stack)->prev = tmp;
-	*stack = (*stack)->prev;
-	(*stack)->prev = NULL;
-	(*stack)->next = tmp;
+	tmp->next = *stack;
+	(*stack) = (*stack)->prev;
+	(*stack)->prev->next = NULL;
+	tmp->prev = NULL;
 	ft_putendl_fd("rra", 1);
 }
 
@@ -34,9 +35,10 @@ void	rrb(t_stack **stack)
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	(*stack)->prev = tmp;
-	*stack = (*stack)->prev;
-	(*stack)->prev = NULL;
-	(*stack)->next = tmp;
+	tmp->next = *stack;
+	(*stack) = (*stack)->prev;
+	(*stack)->prev->next = NULL;
+	tmp->prev = NULL;
 	ft_putendl_fd("rrb", 1);
 }
 
