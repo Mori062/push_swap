@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/11 20:56:05 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 21:54:01 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,21 +85,31 @@ void	sort5(t_dock *dock, size_t min_index)
 	pa(&dock->stack_a, &dock->stack_b);
 }
 
-int	find_counter_up_num(t_dock **dock, size_t counter)
+int	find_if_half(t_dock **dock, size_t counter)
 {
 	size_t	i;
+	size_t	j;
 	t_stack	*tmp;
 
 	i = 0;
+	j = 0;
 	tmp = (*dock)->stack_b;
-	while (i < (BLOCK_NUM / 3 * 2))
+	while ((*dock)->stack_b->next != NULL)
 	{
+		(*dock)->stack_b = (*dock)->stack_b->next;
+		i++;
+	}
+	while ((*dock)->stack_b->prev != NULL)
+		(*dock)->stack_b = (*dock)->stack_b->prev;
+	i /= 2;
+	while (tmp->next != NULL)
+	{
+		if (j == i)
+			break ;
 		if (tmp->index == counter - 5)
 			return (1);
-		if (tmp->next == NULL)
-			break ;
 		tmp = tmp->next;
-		i++;
+		j++;
 	}
 	return (0);
 }
@@ -123,7 +133,7 @@ void	make_king_deshret(t_dock **dock, size_t index_max)
 		else if ((*dock)->stack_a->index <= BLOCK_NUM + num)
 		{
 			pb(&(*dock)->stack_a, &(*dock)->stack_b);
-			if ((*dock)->stack_b->index <= (BLOCK_NUM / 3) + num)
+			if ((*dock)->stack_b->index <= (BLOCK_NUM / 2) + num)
 				rb(&(*dock)->stack_b);
 			i++;
 		}
@@ -144,7 +154,7 @@ void	sort_many(t_dock *dock, size_t index_max)
 			pa(&dock->stack_a, &dock->stack_b);
 			index_max--;
 		}
-		else if (find_counter_up_num(&dock, index_max) == 1)
+		else if (find_if_half(&dock, index_max) == 1)
 			rb(&dock->stack_b);
 		else
 			rrb(&dock->stack_b);
