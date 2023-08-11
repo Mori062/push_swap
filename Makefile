@@ -49,11 +49,14 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS)
 
 clean:
 	@ make clean -C $(LIB_PATH)
-	$(RM) $(OBJS)
+	@ $(RM) $(OBJS)
+	@ $(RM) -r $(OBJ_PATH)
+	@echo "$(REMOVE) $(BLUE)Remove push_swap objects... $(RESET)"
 
 fclean: clean
 	@ make fclean -C $(LIB_PATH)
-	$(RM) $(NAME)
+	@ $(RM) $(NAME)
+	@echo "$(REMOVE) $(BLUE)Remove push_swap... $(RESET)"
 
 re: fclean all
 

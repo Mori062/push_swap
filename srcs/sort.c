@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/11 10:42:40 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:44:42 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,35 +85,53 @@ void	sort5(t_dock *dock, size_t min_index)
 	pa(&dock->stack_a, &dock->stack_b);
 }
 
-void	sort_many(t_dock *dock, size_t counter)
+int	find_counter_up_20(t_dock *dock, size_t counter)
 {
-	size_t	num;
 	size_t	i;
+	t_stack	*tmp;
+
+	i = 0;
+	tmp = dock->stack_b;
+	while (i < 20)
+	{
+		if (tmp->index == counter)
+			return (1);
+		tmp = tmp->next;
+		i++;
+	}
+	return (0);
+}
+
+void	make_king_deshret(t_dock **dock)
+{
+	size_t	i;
+	size_t	num;
 
 	i = 0;
 	num = 0;
-	counter--;
-	while (dock->stack_a != NULL)
+	while ((*dock)->stack_a != NULL)
 	{
-		if (i == 20)
+		if (i == 21)
 		{
-			num += 20;
+			num += 21;
 			i = 0;
 		}
-		if (dock->stack_a->index <= 5 + num)
+		if ((*dock)->stack_a->index <= 21 + num)
 		{
-			pb(&dock->stack_a, &dock->stack_b);
-			rb(&dock->stack_b);
-			i++;
-		}
-		else if (dock->stack_a->index <= 20 + num)
-		{
-			pb(&dock->stack_a, &dock->stack_b);
+			pb(&(*dock)->stack_a, &(*dock)->stack_b);
+			if ((*dock)->stack_b->index <= 7 + num)
+				rb(&(*dock)->stack_b);
 			i++;
 		}
 		else
-			ra(&dock->stack_a);
+			ra(&(*dock)->stack_a);
 	}
+}
+
+void	sort_many(t_dock *dock, size_t counter)
+{
+	counter--;
+	make_king_deshret(&dock);
 	while (dock->stack_b != NULL)
 	{
 		if (dock->stack_b->index == counter)
@@ -121,39 +139,7 @@ void	sort_many(t_dock *dock, size_t counter)
 			pa(&dock->stack_a, &dock->stack_b);
 			counter--;
 		}
-		else if (dock->stack_b->next->index == counter
-			|| dock->stack_b->next->next->index == counter
-			|| dock->stack_b->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->index
-			== counter
-			|| dock->stack_b->next->next->next->next->next->next->next->index
-			== counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->next->next->next->next->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->next->next->next->next->next
-			->index == counter
-			|| dock->stack_b->next->next->next->next->next->next->next->next
-			->next->next->next->next->next->next->next->next->next->next
-			->index == counter)
+		else if (find_counter_up_20(dock, counter) == 1)
 			rb(&dock->stack_b);
 		else
 			rrb(&dock->stack_b);
