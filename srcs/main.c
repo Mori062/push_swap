@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 12:19:45 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 20:55:12 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,13 @@ int	main(int argc, char **argv)
 	}
 	dock = dock_new(args, num_counter);
 	index = args_index(args, num_counter);
-	// free(args);
 	putindex(dock->stack_a, index, num_counter);
-	// free(index);
 	sort(dock, num_counter);
-	// dock_free(&dock);
-	// return (0);
 	exit(0);
 }
 
-__attribute__((destructor))
-static void destructor(void)
-{
-	system("leaks push_swap");
-}
+// __attribute__((destructor))
+// static void destructor(void)
+// {
+// 	system("leaks push_swap");
+// }

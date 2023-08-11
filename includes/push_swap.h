@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 10:25:08 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/11 20:54:54 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "../libft/includes/libft.h"
 # include <stdio.h>
+
+# define BLOCK_NUM 30
 
 typedef struct s_stack
 {
