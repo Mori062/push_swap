@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 00:29:22 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 10:25:08 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int					check_args(int argc, char **argv);
 
 int					err_msg(void);
 
-// int					*putargs2stack(int argc, char **argv, size_t counter);
 int					check_duplicate(int *args, size_t counter);
 
 t_dock				*dock_new(int *args, size_t counter);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/11 01:26:01 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 10:42:40 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,22 +91,22 @@ void	sort_many(t_dock *dock, size_t counter)
 	size_t	i;
 
 	i = 0;
-	num = 1;
+	num = 0;
 	counter--;
 	while (dock->stack_a != NULL)
 	{
 		if (i == 20)
 		{
-			num++;
+			num += 20;
 			i = 0;
 		}
-		if (dock->stack_a->index <= 18 * num)
+		if (dock->stack_a->index <= 5 + num)
 		{
 			pb(&dock->stack_a, &dock->stack_b);
 			rb(&dock->stack_b);
 			i++;
 		}
-		else if (dock->stack_a->index <= 20 * num)
+		else if (dock->stack_a->index <= 20 + num)
 		{
 			pb(&dock->stack_a, &dock->stack_b);
 			i++;

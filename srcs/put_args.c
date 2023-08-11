@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_args.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:29:24 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 14:34:49 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/11 10:12:49 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	*args_index(int *args, size_t counter)
 		sorted[i] = count;
 		i++;
 	}
-	// free(args);
+	free(args);
 	return (sorted);
 }
 
