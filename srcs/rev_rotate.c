@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:40:54 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/10 12:48:48 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 01:00:53 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rra(t_stack **stack)
+void	rra(t_stack **stack, size_t *rr_chance)
 {
 	t_stack	*tmp;
 
@@ -24,10 +24,16 @@ void	rra(t_stack **stack)
 	(*stack) = (*stack)->prev;
 	(*stack)->prev->next = NULL;
 	tmp->prev = NULL;
+	if (rr_chance != NULL)
+	{
+		if (*rr_chance == 1)
+			ft_putendl_fd("rb", 1);
+		*rr_chance = 0;
+	}
 	ft_putendl_fd("rra", 1);
 }
 
-void	rrb(t_stack **stack)
+void	rrb(t_stack **stack, size_t *rr_chance)
 {
 	t_stack	*tmp;
 
@@ -39,11 +45,11 @@ void	rrb(t_stack **stack)
 	(*stack) = (*stack)->prev;
 	(*stack)->prev->next = NULL;
 	tmp->prev = NULL;
+	if (rr_chance != NULL)
+	{
+		if (*rr_chance == 1)
+			ft_putendl_fd("rb", 1);
+		*rr_chance = 0;
+	}
 	ft_putendl_fd("rrb", 1);
-}
-
-void	rrr(t_dock *dock)
-{
-	rra(&dock->stack_a);
-	rrb(&dock->stack_b);
 }

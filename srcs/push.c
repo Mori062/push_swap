@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:01:57 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/10 12:03:18 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 01:02:04 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b, size_t *rr_chance)
 {
 	t_stack	*tmp;
 
@@ -30,10 +30,16 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 		while ((*stack_a)->prev != NULL)
 			*stack_a = (*stack_a)->prev;
 	}
+	if (rr_chance != NULL)
+	{
+		if (*rr_chance == 1)
+			ft_putendl_fd("rb", 1);
+		*rr_chance = 0;
+	}
 	ft_putendl_fd("pa", 1);
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, size_t *rr_chance)
 {
 	t_stack	*tmp;
 
@@ -50,6 +56,12 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 		(*stack_b)->prev = tmp;
 		while ((*stack_b)->prev != NULL)
 			*stack_b = (*stack_b)->prev;
+	}
+	if (rr_chance != NULL)
+	{
+		if (*rr_chance == 1)
+			ft_putendl_fd("rb", 1);
+		*rr_chance = 0;
 	}
 	ft_putendl_fd("pb", 1);
 }

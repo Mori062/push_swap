@@ -1,5 +1,5 @@
 #!/bin/bash
-NBR_COUNT=100
+NBR_COUNT=500
 ##
 NBR=$(seq 1 $NBR_COUNT | sort -R | tr '\n' ' ' | rev | cut -c 2- | rev)
 #NBR="0 1 2 3 4 5 6 7 8 9"
@@ -13,4 +13,4 @@ CMD_COUNT=${#CMD_LINK}
 RESULT=$( echo $CMD | ./checker* $NBR )
 echo "Operations: $CMD_COUNT"
 echo "Result $RESULT"
-echo "https://bluegales.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"
+open "https://bluegales.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"

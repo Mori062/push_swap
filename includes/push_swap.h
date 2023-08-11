@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 21:04:26 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 01:42:34 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include "../libft/includes/libft.h"
 # include <stdio.h>
 
-# define BLOCK_NUM 30
+# define BLOCK_NUM 55
+// 100 のときは 30 が最適
+// 500 のときは 55 が最適
 
 typedef struct s_stack
 {
@@ -48,19 +50,19 @@ void				putindex(t_stack *stack, size_t *index, size_t counter);
 int					*putargs2stack(int *arr, int argc, char **argv);
 
 // sa, sb, ss
-void				sa(t_stack **stack);
-void				sb(t_stack **stack);
-void				ss(t_dock *dock);
+void				sa(t_stack **stack, size_t *rr_chance);
+void				sb(t_stack **stack, size_t *rr_chance);
+// void				ss(t_dock *dock);
 // ra, rb, rr
-void				ra(t_stack **stack);
-void				rb(t_stack **stack);
-void				rr(t_dock *dock);
+void				ra(t_stack **stack, size_t *rr_chance);
+void				rb(t_stack **stack, size_t *rr_chance);
+// void				rr(t_dock *dock);
 // rra, rrb, rrr
-void				rra(t_stack **stack);
-void				rrb(t_stack **stack);
-void				rrr(t_dock *dock);
+void				rra(t_stack **stack, size_t *rr_chance);
+void				rrb(t_stack **stack, size_t *rr_chance);
+// void				rrr(t_dock *dock);
 // pa, pb
-void				pa(t_stack **stack_a, t_stack **stack_b);
-void				pb(t_stack **stack_a, t_stack **stack_b);
+void				pa(t_stack **stack_a, t_stack **stack_b, size_t *rr_chance);
+void				pb(t_stack **stack_a, t_stack **stack_b, size_t *rr_chance);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 15:04:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 00:41:22 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 01:26:28 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_stack **stack)
+void	ra(t_stack **stack, size_t *rr_chance)
 {
 	t_stack	*tmp;
 
@@ -28,10 +28,19 @@ void	ra(t_stack **stack)
 	(*stack)->next = tmp;
 	while ((*stack)->prev != NULL)
 		*stack = (*stack)->prev;
-	ft_putendl_fd("ra", 1);
+	if (rr_chance != NULL)
+	{
+		if (*rr_chance == 1)
+			ft_putendl_fd("rr", 1);
+		else
+			ft_putendl_fd("ra", 1);
+		*rr_chance = 0;
+	}
+	else
+		ft_putendl_fd("ra", 1);
 }
 
-void	rb(t_stack **stack)
+void	rb(t_stack **stack, size_t *rr_chance)
 {
 	t_stack	*tmp;
 
@@ -47,11 +56,14 @@ void	rb(t_stack **stack)
 	(*stack)->next = tmp;
 	while ((*stack)->prev != NULL)
 		*stack = (*stack)->prev;
-	ft_putendl_fd("rb", 1);
+	if (rr_chance != NULL)
+	{
+		if (*rr_chance == 1)
+			ft_putendl_fd("rb", 1);
+		else
+			*rr_chance = 1;
+	}
+	else
+		ft_putendl_fd("rb", 1);
 }
 
-void	rr(t_dock *dock)
-{
-	ra(&dock->stack_a);
-	rb(&dock->stack_b);
-}
