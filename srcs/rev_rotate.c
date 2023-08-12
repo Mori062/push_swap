@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:40:54 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 01:00:53 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 18:22:35 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rra(t_stack **stack, size_t *rr_chance)
 	t_stack	*tmp;
 
 	tmp = *stack;
+	if (tmp->next == NULL)
+		return ;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	(*stack)->prev = tmp;
@@ -38,6 +40,8 @@ void	rrb(t_stack **stack, size_t *rr_chance)
 	t_stack	*tmp;
 
 	tmp = *stack;
+	if (tmp->next == NULL)
+		return ;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
 	(*stack)->prev = tmp;
