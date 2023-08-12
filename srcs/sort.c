@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/12 13:43:34 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:12:39 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	find_if_half(t_dock **dock, size_t counter)
+static int	find_if_half(t_dock **dock, size_t counter)
 {
 	size_t	i;
 	size_t	j;
@@ -41,7 +41,7 @@ int	find_if_half(t_dock **dock, size_t counter)
 	return (0);
 }
 
-void	free_candidate(t_dock **dock, size_t *flag, size_t *index_max)
+static void	free_candidate(t_dock **dock, size_t *flag, size_t *index_max)
 {
 	pa(&(*dock)->stack_a, &(*dock)->stack_b, 0);
 	(*index_max)--;
@@ -53,7 +53,7 @@ void	free_candidate(t_dock **dock, size_t *flag, size_t *index_max)
 	}
 }
 
-void	found_candidate(t_dock **dock, size_t *flag)
+static void	found_candidate(t_dock **dock, size_t *flag)
 {
 	pa(&(*dock)->stack_a, &(*dock)->stack_b, 0);
 	(*flag) = 1;
@@ -99,6 +99,3 @@ int	check_sorted(t_dock *dock)
 	}
 	return (1);
 }
-
-// sort
-

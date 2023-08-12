@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 14:06:44 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:10:49 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	count_node(int argc, char **argv)
+static long	count_node(int argc, char **argv)
 {
 	int		i;
 	int		flag;

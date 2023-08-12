@@ -6,23 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:13:19 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/09 14:26:47 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:09:33 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// void	push(t_stack *stack, int data)
-// {
-// 	stack = (t_stack *)malloc(sizeof(t_stack));
-// 	if (stack == NULL)
-// 		return ;
-// 	stack->original = data;
-// 	stack->index = -1;
-// 	stack->next = NULL;
-// }
-
-void	stack_init(t_stack **stack, int *args, size_t counter)
+static void	stack_init(t_stack **stack, int *args, size_t counter)
 {
 	t_stack	*tmp;
 	size_t	i;

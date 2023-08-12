@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 14:54:25 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 01:00:38 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:12:33 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,3 @@ void	sb(t_stack **stack, size_t *rr_chance)
 	}
 	ft_putendl_fd("sb", 1);
 }
-
-// void	ss(t_dock *dock)
-// {
-// 	sa(&dock->stack_a);
-// 	sb(&dock->stack_b);
-// }

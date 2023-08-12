@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 13:56:43 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 14:04:17 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:09:44 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_dock(t_dock *dock)
+static void	free_dock(t_dock *dock)
 {
 	t_stack	*tmp;
 

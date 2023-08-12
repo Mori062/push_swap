@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 20:54:51 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:08:21 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_one_commandline(char **argv)
+static int	check_one_commandline(char **argv)
 {
 	int		i;
 	int		flag;
@@ -39,7 +39,7 @@ int	check_one_commandline(char **argv)
 	return (0);
 }
 
-int	check_many_commandlines(char **argv)
+static int	check_many_commandlines(char **argv)
 {
 	int	i;
 
