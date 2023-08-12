@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 01:17:55 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 13:43:39 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,30 @@ long	count_node(int argc, char **argv)
 	}
 	else
 		return ((size_t)argc - 1);
+}
+
+void	sort(t_dock *dock, size_t counter)
+{
+	size_t	block_num;
+
+	if (counter > 200)
+		block_num = 55;
+	else
+		block_num = 30;
+	if (check_sorted(dock) == 1)
+		return ;
+	if (counter == 1)
+		return ;
+	else if (counter == 2)
+		sort2(dock);
+	else if (counter == 3)
+		sort3(dock, 0);
+	else if (counter == 4)
+		sort4(dock, 0);
+	else if (counter == 5)
+		sort5(dock, 0);
+	else
+		sort_many(dock, counter, block_num);
 }
 
 int	main(int argc, char **argv)
