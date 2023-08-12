@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 13:44:19 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:03:56 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					check_args(int argc, char **argv);
 int					err_msg(void);
 
 int					check_duplicate(int *args, size_t counter);
-int	check_sorted(t_dock *dock);
+int					check_sorted(t_dock *dock);
 t_dock				*dock_new(int *args, size_t counter);
 
 size_t				*args_index(int *args, size_t counter);
@@ -50,7 +50,8 @@ void				sort2(t_dock *dock);
 void				sort3(t_dock *dock, size_t min_index);
 void				sort4(t_dock *dock, size_t min_index);
 void				sort5(t_dock *dock, size_t min_index);
-void	sort_many(t_dock *dock, size_t index_max, size_t block_num);
+void				sort_many(t_dock *dock, size_t index_max, size_t block_num);
+void				free_all(t_dock *dock, size_t *index);
 // sa, sb
 void				sa(t_stack **stack, size_t *rr_chance);
 void				sb(t_stack **stack, size_t *rr_chance);

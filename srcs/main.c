@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 13:43:39 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:06:44 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int	main(int argc, char **argv)
 	index = args_index(args, num_counter);
 	putindex(dock->stack_a, index, num_counter);
 	sort(dock, num_counter);
-	exit(0);
+	free_all(dock, index);
+	exit (0);
 }
 
 // __attribute__((destructor))

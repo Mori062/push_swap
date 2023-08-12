@@ -7,6 +7,7 @@ SRC_PATH	= srcs
 SRC			= check_args.c \
 				dock_init.c \
 				error_message.c \
+				free.c \
 				king_deshret.c \
 				main.c \
 				push.c \
@@ -62,10 +63,10 @@ fclean: clean
 
 re: fclean all
 
-test: all bonus
-	bash test.sh
+tester: all
+	@ bash shell_script/test.sh
 
 visual: all
-	bash pain.sh
+	@ bash shell_script/pain.sh
 
 .PHONY : all clean fclean re
