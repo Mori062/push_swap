@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:34:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 14:08:21 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/12 14:35:01 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,11 @@ static int	check_many_commandlines(char **argv)
 int	check_args(int argc, char **argv)
 {
 	if (argc == 2)
+	{
+		if (ft_isstrspace(argv[1]) == 1)
+			return (1);
 		return (check_one_commandline(argv));
+	}
 	else
 		return (check_many_commandlines(argv));
 }
