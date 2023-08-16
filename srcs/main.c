@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 14:19:04 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/16 18:18:06 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ int	main(int argc, char **argv)
 	putindex(dock->stack_a, index, num_counter);
 	sort(dock, num_counter);
 	free_all(dock, index);
-	exit (0);
+	return (0);
 }
 
 // __attribute__((destructor))
 // static void destructor(void)
 // {
-// 	system("leaks push_swap");
+// 	system("leaks -q push_swap");
 // }
