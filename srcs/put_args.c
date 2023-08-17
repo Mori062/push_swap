@@ -6,7 +6,7 @@
 /*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 14:29:24 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/11 10:12:49 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:58:39 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	*args_index(int *args, size_t counter)
 
 	sorted = (size_t *)malloc(sizeof(size_t) * counter);
 	if (sorted == NULL)
-		return (NULL);
+		exit (1);
 	i = 0;
 	while (i < counter)
 	{

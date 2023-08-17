@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dock_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:13:19 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/12 14:09:33 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/17 18:01:15 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	stack_init(t_stack **stack, int *args, size_t counter)
 
 	*stack = (t_stack *)malloc(sizeof(t_stack));
 	if (*stack == NULL)
-		return ;
+		exit (1);
 	(*stack)->original = args[0];
 	(*stack)->index = -1;
 	(*stack)->next = NULL;
@@ -30,7 +30,7 @@ static void	stack_init(t_stack **stack, int *args, size_t counter)
 	{
 		tmp->next = (t_stack *)malloc(sizeof(t_stack));
 		if (tmp->next == NULL)
-			return ;
+			exit (1);
 		tmp->next->prev = tmp;
 		tmp = tmp->next;
 		tmp->original = args[i];
@@ -46,7 +46,7 @@ t_dock	*dock_new(int *args, size_t counter)
 
 	dock = (t_dock *)malloc(sizeof(t_dock));
 	if (dock == NULL)
-		return (NULL);
+		exit (1);
 	dock->stack_b = NULL;
 	stack_init(&dock->stack_a, args, counter);
 	return (dock);
