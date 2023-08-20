@@ -8,13 +8,13 @@ SRC			= check_args.c \
 				dock_init.c \
 				error_message.c \
 				free.c \
-				king_deshret.c \
 				main.c \
 				push.c \
 				put_args.c \
 				put_stack.c \
 				rev_rotate.c \
 				rotate.c \
+				sand_clock.c \
 				sort_num.c \
 				sort.c \
 				swap.c

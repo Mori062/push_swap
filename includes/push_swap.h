@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:32:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/17 01:35:04 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/20 09:09:42 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t				*args_index(int *args, size_t counter);
 int					*putargs2stack(int *arr, int argc, char **argv);
 void				putindex(t_stack *stack, size_t *index, size_t counter);
 t_dock				*dock_new(int *args, size_t counter);
-void				make_king_deshret(t_dock **dock, size_t index_max,
+void				make_sandclock(t_dock **dock, size_t index_max,
 						size_t block_num);
 void				free_all(t_dock *dock, size_t *index);
 

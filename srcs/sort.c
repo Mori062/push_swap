@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 03:17:45 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/12 14:12:39 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/20 09:09:31 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	find_if_half(t_dock **dock, size_t counter)
 	{
 		if (j == i)
 			break ;
-		if (tmp->index == counter - 5)
+		if (tmp->index == counter)
 			return (1);
 		tmp = tmp->next;
 		j++;
@@ -65,21 +65,22 @@ void	sort_many(t_dock *dock, size_t index_max, size_t block_num)
 
 	flag = 0;
 	index_max--;
-	make_king_deshret(&dock, index_max, block_num);
+	make_sandclock(&dock, index_max, block_num);
 	sort5(dock, index_max - 4);
+	index_max -= 5;
 	while (dock->stack_b != NULL)
 	{
-		if (dock->stack_b->index == index_max - 5)
+		if (dock->stack_b->index == index_max)
 			free_candidate(&dock, &flag, &index_max);
 		else if (find_if_half(&dock, index_max) == 1)
 		{
-			if (dock->stack_b->index == index_max - 6 && flag == 0)
+			if (dock->stack_b->index == index_max - 1 && flag == 0)
 				found_candidate(&dock, &flag);
 			rb(&dock->stack_b, 0);
 		}
 		else
 		{
-			if (dock->stack_b->index == index_max - 6 && flag == 0)
+			if (dock->stack_b->index == index_max - 1 && flag == 0)
 				found_candidate(&dock, &flag);
 			rrb(&dock->stack_b, 0);
 		}
