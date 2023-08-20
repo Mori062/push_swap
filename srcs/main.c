@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 16:33:49 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/16 18:18:06 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/08/20 10:11:31 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	sort(t_dock *dock, size_t counter)
 {
 	size_t	block_num;
 
-	if (counter > 200)
-		block_num = 55;
-	else
-		block_num = 30;
+	block_num = counter / 16 + 24;
 	if (check_sorted(dock) == 1)
 		return ;
 	if (counter == 1)
