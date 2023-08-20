@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 05:20:30 by shmorish          #+#    #+#             */
-/*   Updated: 2023/08/09 16:42:33 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/08/20 10:14:50 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
