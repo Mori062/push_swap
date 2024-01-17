@@ -13,4 +13,4 @@ CMD_COUNT=${#CMD_LINK}
 RESULT=$( echo $CMD | ./checker* $NBR )
 echo "Operations: $CMD_COUNT"
 echo "Result $RESULT"
-open "https://bluegales.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"
+open "https://kaaaaakun.github.io/push-swap-pain/?&nbr=$NBR_LINK&cmd=$CMD_LINK"
