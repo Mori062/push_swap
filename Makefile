@@ -4,20 +4,7 @@ CC			= cc
 CFLAGS		= -Wall -Werror -Wextra -g
 
 SRC_PATH	= srcs
-SRC			= check_args.c \
-				dock_init.c \
-				error_message.c \
-				free.c \
-				main.c \
-				push.c \
-				put_args.c \
-				put_stack.c \
-				rev_rotate.c \
-				rotate.c \
-				sand_clock.c \
-				sort_num.c \
-				sort.c \
-				swap.c
+SRC			= $(shell ls $(SRC_PATH))
 SRCS		= $(addprefix $(SRC_PATH)/, $(SRC))
 
 OBJ_PATH	= obj
@@ -25,12 +12,6 @@ OBJ 		= $(SRC:.c=.o)
 OBJS		= $(addprefix $(OBJ_PATH)/, $(OBJ))
 
 INC_PATH	= includes
-INC			= push_swap.h
-INCS		= $(addprefix $(INC_PATH)/, $(INC))
-
-LIB_PATH	= libft
-LIB			= libft.a
-LIBS		= $(addprefix $(LIB_PATH)/, $(LIB))
 
 RM			= rm -f
 
@@ -42,22 +23,19 @@ RESET		= \033[0m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@ make -C $(LIB_PATH)
-	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
+	@ $(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@echo "$(CHECK) $(BLUE)Compiling push_swap... $(RESET)"
 
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS)
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@ mkdir -p $(OBJ_PATH)
-	@ $(CC) $(CFLAGS) -o $@ -c $< -I $(INCS)
+	@ $(CC) $(CFLAGS) -o $@ -c $< -I $(INC_PATH)
 
 clean:
-	@ make clean -C $(LIB_PATH)
 	@ $(RM) $(OBJS)
 	@ $(RM) -r $(OBJ_PATH)
 	@echo "$(REMOVE) $(BLUE)Remove push_swap objects... $(RESET)"
 
 fclean: clean
-	@ make fclean -C $(LIB_PATH)
 	@ $(RM) $(NAME)
 	@echo "$(REMOVE) $(BLUE)Remove push_swap... $(RESET)"
 
